@@ -1,0 +1,593 @@
+//variable
+$lobster:'Lobster', cursiv;
+$ABeeZee:'ABeeZee', sans-serif;
+$colorMaronLight:#c8ad7f;
+$colorMarron:#B17375;
+$bodyColor:#f8f5f0;
+$amaTicSc:'Amatic SC', cursive;
+$colorWhiter:#fdfcfa;
+
+//taile écran responsive
+
+$device-width-smartphone:767px;
+$device-width-tablette:992px;
+
+html,body{
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'PT Sans', sans-serif;
+  background-color: $bodyColor!important;
+}
+
+header,section,figure,figcaption,article,footer{
+  display: block;
+}
+
+a,a:hover{
+  text-decoration: none!important;
+}
+
+/*--css-Loading--and--favori-empty*/
+.loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 60vh;
+  i{
+    font-size: 50px;
+    color: $colorMaronLight;
+  }
+}
+
+.empty-favori{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 60vh;
+  color:#dedede
+}
+
+.modal-body{
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.block-shadow-info{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  color: white;
+  span{
+      width: 80px;
+      height: 80px;
+      border-radius: 100px;
+      display: block;
+      background-color: $colorMarron;
+      color: white ;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    i{
+      font-size: 40px;
+    }
+  }
+}
+
+
+/*--header--*/
+
+#header{
+  border-bottom: 1.5px dashed $colorMaronLight;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 9px;
+  margin-bottom: 16px;
+  
+  #logo{
+    img{
+      width: 230px;
+      height: 200px;
+    }
+    .title{
+      font-family: $lobster;
+      color:$colorMaronLight;
+      font-size: 46px;
+      padding: 10px 0px;
+    }
+  }
+
+  .navigation{
+      display: flex;
+      margin-top: 30px;
+      width: 100%;
+      align-items: center;
+      padding:12px;
+      #menuToggle{
+        display: none;
+        background-color: $colorMaronLight;
+        width: 45px;
+        height: 45px;
+        cursor: pointer;
+        // display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+        -webkit-user-select: none;
+        user-select: none;
+        span{
+            display: block;
+            width: 33px;
+            height: 4px;
+            margin-bottom: 5px;
+            position: relative;
+            background: $colorWhiter;
+            border-radius: 3px;
+           &:last-child{
+             margin-bottom: 0px!important;
+           }
+             
+          }
+      }
+
+      .list-menu{
+        margin-top: 20px;
+        display: flex;
+        flex:11;
+        align-items: center;
+        list-style-type: none;
+        padding-left: 0px!important;
+        padding-right: 0px!important;
+        margin-bottom: 0px!important;
+       
+    
+        li{
+          padding:7px 10px;
+          a{
+            display: block;
+            text-transform: uppercase;
+            color: $colorMaronLight;
+            font-family: $ABeeZee;
+            font-size: 16px;
+            font-weight: 700;
+            
+          }
+
+          .button-link-menu{
+            background-color: $colorMaronLight;
+            width: 100%;
+            height: 4px;
+            display: block;
+            border-radius: 100px;
+          }
+        }
+      }
+
+      form {
+        width: 600px;
+        position: relative;
+        margin-top: 6px;
+        display: flex;
+        flex: 8;
+        justify-content: flex-end;
+        .avance-search{
+          margin-right: 9px;
+          border-radius: 100px;
+        }
+        .advanced-search-element{
+          position: absolute;
+          background-color: $colorWhiter;
+          border:1px solid $colorMaronLight;
+          border-radius: 100px;
+          padding:12px 15px;
+          top: 46px;
+          width: 600px;
+          z-index: 2;
+          display: flex;
+          align-items: center;
+          span{
+            font-weight: 700;
+            margin-right: 6px;
+            
+          }
+         
+          .item-advanced{
+            label{
+              font-weight: 700;
+              margin-bottom: 0px!important;
+              padding-left: 9px;
+              padding-right: 9px;
+            }
+          }
+        }
+        .group-search{
+          position: relative;
+          .form-search{
+            width: 250px;
+            border-radius: 100px;
+            outline: none!important;
+            &:active,&:focus{
+              outline: none!important;
+            }
+          }
+  
+          .btn-search{
+            position: absolute;
+            right: 5px;
+            top: 3px;
+            cursor: pointer;
+            padding:3px 7px!important;
+            border-radius: 100px;
+          }
+        }
+       
+      }
+    }
+
+  }
+
+  /*--css-home-page--*/
+
+  .block-recette{
+    border:1px solid $colorMaronLight;
+    background-color: #f3efe8;
+    margin-bottom: 12px;
+    .link-recette{
+      position: relative;
+       display: flex;
+       color: #4d4d4d;
+       padding: 9% 9% 9% 9%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+       
+        &:hover .block-shadow-info{
+          background-color: rgba(0,0,0,.5);
+          visibility: visible;
+          transition: .4s;
+        }
+
+        .btn-delete-item{
+          position: absolute;
+          top:-10px;
+          right: -6px;
+          border-radius: 100px;
+          z-index: 2;
+        }
+        .content-detail{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 100px;
+          padding:5px;
+          width: 100%;
+          background-color: #fff;
+          .block-recette{
+            text-align: center;
+          
+          }
+        }
+    
+        .recette-img{
+          width: 100%;
+          height:auto;
+          img{
+            width: 100%;
+            height: 100%;
+          }
+        }
+    
+        .recette-title{
+          background-color: rgba(0,0,0,.8);
+          font-size: 20px;
+          color:#fff;
+          font-family: $lobster;
+          padding: 8px;
+          text-align: center;
+          width: 100%;
+          display: block;
+          margin-bottom: 6px;
+        }
+        .price-recette{
+          color: $colorMarron;
+          font-size: 24px;
+          font-family: $lobster;
+        }
+
+    }
+  }
+
+  /*--css-pages-recette-element--*/
+
+  .recette-element{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    figure{
+      width: 100%;
+    }
+
+    .header-recette-element{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 9px;
+    }
+    .title-recette-element{
+      font-size: 2rem;
+      font-family: $lobster;
+      color:$colorMarron;
+      padding-bottom: 12px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: pre;
+      max-width: 410px;
+      margin-bottom: 0px!important;
+     
+    }
+    .content-btn-favori{
+      display: flex;
+      .add-favori{
+        background-color: transparent!important;
+        border-color: $colorMaronLight!important;
+        color:$colorMaronLight;
+        margin-left: 5px;
+        float: right;
+        i{
+          color: $colorMaronLight;
+          padding-right: 4px;
+        }  
+    }
+   
+    }
+
+    .recette-img-element{
+      img{
+        width: 100%;
+        height: 560px;
+      }
+    }
+
+    .recette-content-element{
+      width: 100%;
+      .recette-etape{
+        width: 600px;
+        padding: 11px 22px;
+        margin: 0 auto 22px;
+        background-color: #fdfcfa;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .item-etape{
+          font-family: $amaTicSc;
+          font-size: 30px;
+          color: $colorMarron;
+          text-transform: uppercase;
+          margin-right: 6px;
+       
+          .item-text{
+            display: inline-block;
+            position: relative;
+            top: 4px;
+            font-weight: 700;
+          }
+        }
+       
+      }
+    }
+
+    .top-ingre{
+    
+      h2{
+        color:$colorMaronLight;
+        background-color: #f8f5f0;
+        font-family: $amaTicSc;
+        font-size: 3em;
+        text-align: center;
+        margin:9px 0px;
+        position: relative;
+        overflow: hidden;
+        span{
+          z-index: 2;
+          position: relative;
+          background-color:$bodyColor;
+          padding: 0px 5px;
+        }
+        &::after,&::before{
+          position: absolute;
+          z-index: 1;
+          top: 6px;
+          font-size: 18px;
+          font-size: 1.8rem;
+          line-height: 1em;
+          margin-left: 5.5px;
+          margin-left: .55rem;
+          padding-bottom: 1em;
+          font-family: Arial,Helvetica,sans serif;
+          letter-spacing: .08em;
+          content: '......................................................................................................................................................';
+          display: inline-block;
+          height: 22px;
+          height: 2.2rem;
+          background-color: #f8f5f0;
+          left: 0;
+          width: 50%;
+          overflow: hidden;
+        }
+
+        &::after{
+          left: auto;
+        }
+      }
+
+      .list-item-ingre{
+        list-style-type: disc;
+        padding-left: 30px;
+        li{
+          padding: 0 0 11px 0;
+          font-weight: 700;
+          font-size: 13px;
+          color:$colorMarron
+        }
+      }
+    }
+  }
+
+  /*--css-component--*/
+
+  .suggestion{
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h3{
+      font-size: 1.7em;
+      color:$colorMarron;
+      font-family: $lobster;
+    }
+  
+  }
+
+  /*--css-item--*/
+
+  .item-suggestion{
+    background-color: $colorWhiter;
+   
+    margin-bottom: 12px;
+
+    .item-link-suggestion{
+      padding-top: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      &:hover .block-shadow-info{
+        visibility: visible;
+        background-color: rgba(0,0,0,.5);
+      }
+      figure{
+        padding:0px 20px;
+        margin-bottom: 12px;
+        img{
+          width: 100%;
+          height: 200px;
+        }
+      }
+
+      h4{
+        font-size: 16px;
+        color:$colorMarron;
+        font-family: $lobster;
+        text-align: center;
+      }
+    }
+
+    }
+
+  /*--media-screnn-css--*/
+
+  @media screen and (max-width: $device-width-tablette) {
+    header{
+      .navigation{
+        flex-direction: column-reverse;
+        position: relative;
+        margin-top:0px!important;
+        #menuToggle{
+          position: absolute;
+          top:-60px;
+          right: 20px;
+          margin-bottom: 20px;
+          display: flex!important;
+        }
+        .list-menu{
+          background-color: $colorWhiter;
+          margin-top: 60px;
+          display: none!important;
+          flex-direction: column!important;
+          width: 100%;
+         
+          li{
+            margin-bottom: 20px;
+          }
+        }
+  
+        .list-menu.list-meunIsopen{
+          display: flex!important;
+    
+        }
+  
+  
+        form {
+          justify-content: space-between!important;
+          width: auto!important;
+          .avance-search{
+           
+          }
+        }
+  
+      }
+    }
+    .title-recette-element{
+      font-size: 1.6em!important;
+    }
+
+    .item-link-suggestion{
+      h4{
+        font-size: 14px!important;
+      }
+    }
+  }
+  
+  @media screen and (max-width: $device-width-smartphone) {
+    .recette-etape{
+      width: 100%!important;
+      flex-direction: column;
+      align-items: flex-start!important;
+      .item-etape{
+        font-size: 25px!important;
+      } 
+    }
+
+    .top-ingre{
+      h2{
+        font-size: 2.5em!important;
+      }
+    }
+
+    .suggestion{
+      h3{
+        font-size: 1.4em!important;
+      }
+    }
+
+    .header-recette-element{
+      flex-direction: column;
+    }
+
+    .recette-img-element{ 
+      img{
+        height: 400px!important;
+      }
+  }
+
+  }
+  
+
+  

@@ -1,25 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// import module and config file
 
-function App() {
+import React,{useEffect,useState} from 'react';
+import {apiServerRequet,API_KEY} from './config';
+import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
+import {Container,Row} from 'reactstrap'
+
+// pages import and componants
+
+import Home from './pages/Home';
+import Recette from './pages/recette';
+import Header from './components/Header';
+import Favorie from './pages/Favorie'
+import Search from './pages/Search'
+
+const App = () => {
+  useEffect( () => {
+
+  },[])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router> 
+      <Container>
+        <Row>
+            <Header />    
+        </Row>
+        <Row>
+          <Switch>
+            <Route path="/" component={Home} exact={true}></Route>
+            <Route path="/favorie" component={Favorie}></Route>
+            <Route path="/recette/:id" component={Recette}></Route>
+            <Route path="/search" component={Search}></Route>
+          </Switch>
+        </Row>
+      
+      </Container>
+    </Router>
   );
 }
 
