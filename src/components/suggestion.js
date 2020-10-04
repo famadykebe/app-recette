@@ -9,7 +9,6 @@ const Suggestion = (props) =>  {
     const {idRecette,getRecetteSimilar,recetteSimilar} = props;
     useEffect(() => {
         getRecetteSimilar(idRecette);
-        console.log('recetteSimilar -->',recetteSimilar)
     }, [idRecette])
 
  

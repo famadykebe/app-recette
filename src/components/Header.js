@@ -42,7 +42,6 @@ import {withRouter,Link} from 'react-router-dom';
     const handeleChangeVegetal = (e) => {
 
         const element = e.target;
-        console.log('element -->',element)
 
         if(element.checked){
             setVegetarian(element.value);

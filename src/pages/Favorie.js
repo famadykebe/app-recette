@@ -6,8 +6,6 @@ import Loading from '../components/Loading';
  const Favorie = (props) => {
      const {favoriList,isLoading} = props;
 
-    console.log('favoritList --->',favoriList)
-
     return (
         <>
         {isLoading ? (<Loading />) : (
@@ -26,7 +24,6 @@ import Loading from '../components/Loading';
 }
 
 const mapStateToProps = (state) => {
-    console.log('mdr state mdr -->',state.listFavoriItem)
     return {
         favoriList:state.listFavoriItem.favoriList,
         isLoading:state.listFavoriItem.isLoadingFavorie

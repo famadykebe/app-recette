@@ -25,7 +25,6 @@ const Home = (props) => {
 }
 
 const mapStateToProps = (state) => {
-    console.log('state',state.reducerRecette)
     return {
         recette:state.reducerRecette.recette,
         isLoading:state.reducerRecette.isLoadingRecette
