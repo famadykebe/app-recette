@@ -1,5 +1,4 @@
 //import module
-import Cookie from 'js-cookie';
 import {apiServerRequet,API_KEY} from '../config';
 
 // KEY_ACTION
@@ -11,8 +10,7 @@ export const REQUEST_RECETTE_ELEMENT_SUCCESS = 'REQUEST_RECETTE_ELEMENT_SUCCESS'
 export const REQUEST_RECETTE_ELEMENT_FAIL = 'REQUEST_RECETTE_ELEMENT_FAIL';
 export const REQUEST_RECETTE_SIMILAR_SUCCESS = 'REQUEST_RECETTE_SIMILAR_SUCCESS';
 export const REQUEST_RECETTE_SIMILAR_FAIL = 'REQUEST_RECETTE_SIMILAR_FAIL';
-export const REQUEST_LIST_FAVORI = 'REQUE_LIST_FAVORI';
-export const REQUEST_LIST_FAVORI_SUCCESS = 'REQUEST_LIST_FAVORI_SUCCESS';
+export const REQUEST_LIST_FAVORI_ADD = 'REQUEST_LIST_FAVORI_ADD';
 export const DELETE_ITEM_FAVAORI = 'DELETE_ITEM_FAVAORI';
 export const REQUEST_SEARCH_RECETTE = 'REQUEST_SEARCH_RECETTE';
 export const REQUEST_SEARCH_RECETTE_SUCCESS = 'REQUEST_SEARCH_RECETTE_SUCCESS';
@@ -80,24 +78,16 @@ export const getRecetteSimilar = (id) => {
 }
 
 export const getFavoriList = (item) => {
-    
     return (dispatch,getState) => {
-        dispatch({type:REQUEST_LIST_FAVORI});
         const {listFavoriItem: {favoriList}}  = getState();
         const index = favoriList.findIndex(element => element.id === item.id);
         if(index >= 0){
             
         }else{
-            dispatch({type:REQUEST_LIST_FAVORI_SUCCESS,payload:item});
-            Cookie.set('favoriList',JSON.stringify(favoriList));
+            dispatch({type:REQUEST_LIST_FAVORI_ADD,payload:item});
+            const newlisstfavori = getState().listFavoriItem.favoriList;
+            localStorage.setItem('favoriList', JSON.stringify(newlisstfavori));
         } 
-    }
-}
-
-export const cookiFavoriList = () => {
-    return (dispatch) => {
-        dispatch({type:REQUEST_LIST_FAVORI});
-        dispatch({type:REQUEST_LIST_FAVORI_SUCCESS});   
     }
 }
 
@@ -107,7 +97,7 @@ export const deleteRemoveItem = (itemId) => {
         const {listFavoriItem: {favoriList}} = getState();
         const newDatatListFavori = favoriList.filter(el => el.id !== itemId);
         dispatch({type:DELETE_ITEM_FAVAORI,payload:newDatatListFavori});
-        Cookie.set('favoriList',JSON.stringify(newDatatListFavori));
+        localStorage.setItem('favoriList',JSON.stringify(newDatatListFavori));
     }
 }
 

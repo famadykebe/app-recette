@@ -8,10 +8,8 @@ import {
     REQUEST_RECETTE_ELEMENT_FAIL,
     REQUEST_RECETTE_SIMILAR_SUCCESS,
     REQUEST_RECETTE_SIMILAR_FAIL,
-    REQUEST_LIST_FAVORI,
-    REQUEST_LIST_FAVORI_SUCCESS,
+    REQUEST_LIST_FAVORI_ADD,
     DELETE_ITEM_FAVAORI,
-    REQUEST_SEARCH_RECETTE,
     REQUEST_SEARCH_RECETTE_SUCCESS,
     REQUEST_SEARCH_RECETTE_FAIL
     } 
@@ -28,9 +26,7 @@ const inisialState = {
 }
 
 const inisialStateListeItemFavori = {
-    favoriList: Cookie.getJSON('favoriList') || [1,2,3],
-    isLoadingFavorie:null,
-    error_favoriList:null
+    favoriList: JSON.parse(localStorage.getItem('favoriList')) || [],
 }
 
 export const reducerRecette = (state = inisialState,action) => {
@@ -101,19 +97,11 @@ export const reducerRecette = (state = inisialState,action) => {
 export const listFavoriItem = (state = inisialStateListeItemFavori,action ) => {
     switch(action.type){
 
-        case REQUEST_LIST_FAVORI :{
-            return {
-                ...state,
-                isLoadingFavorie:true
-            }
-        }
-
-        case REQUEST_LIST_FAVORI_SUCCESS : {
-           
+        case REQUEST_LIST_FAVORI_ADD : {
+           console.log('new action payload -->',action.payload)
             return {
                 ...state,
                 favoriList:[...state.favoriList,action.payload],
-                isLoadingFavorie:false,
             }
         }
 
