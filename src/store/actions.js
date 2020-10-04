@@ -109,7 +109,6 @@ export const deleteRemoveItem = (itemId) => {
         dispatch({type:DELETE_ITEM_FAVAORI,payload:newDatatListFavori});
         Cookie.set('favoriList',JSON.stringify(newDatatListFavori));
     }
-
 }
 
 export const getSearchRecette = (query) => {

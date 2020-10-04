@@ -7,8 +7,9 @@ import {withRouter,Link} from 'react-router-dom';
     const [isAdvenced,setIsAdvenced] = useState(false);
     const [isOpen,setOpen] = useState(false);
     const [champText,setChampText] = useState('');
-    const champTextRef = React.createRef()
-
+    const [vegetarian,setVegetarian] = useState('');
+    const champTextRef = React.createRef();
+    
     useEffect(() => {
         window.addEventListener('click',() => {
             setIsAdvenced(false);
@@ -17,7 +18,6 @@ import {withRouter,Link} from 'react-router-dom';
 
     const handleIsActiveAdvenced = (e) => {
         e.stopPropagation();
-        console.log('yo man')
         setIsAdvenced(!isAdvenced);
     }
 
@@ -28,17 +28,34 @@ import {withRouter,Link} from 'react-router-dom';
     const handeleSearch = (e) => {
         e.preventDefault();
         champTextRef.current.value = ''
-        props.history.push('/search?query='+champText);
+       if(vegetarian && vegetarian.length > 0){
+            props.history.push('/search?query='+champText+'&tags='+vegetarian);
+       }else{
+            props.history.push('/search?query='+champText);
+       }
     }
 
     const handeleChampText = (e) => {
         setChampText(e.target.value);
     }
 
+    const handeleChangeVegetal = (e) => {
+
+        const element = e.target;
+        console.log('element -->',element)
+
+        if(element.checked){
+            setVegetarian(element.value);
+        }else{
+            setVegetarian('')
+        }
+
+    }
+
     return (
         <header id="header">
             <a href="" id="logo">
-                <h1 className="title">Ô'delices</h1>
+                <h1 className="title">O'delice</h1>
             </a>
 
            <nav className="navigation" role="navigation">
@@ -50,10 +67,6 @@ import {withRouter,Link} from 'react-router-dom';
                     <li>
                         <Link to="/favorie">Mes Favories</Link>
                         {pathname === '/favorie' ? <span className="button-link-menu"></span> : null}
-                    </li>
-                    <li>
-                        <Link to="">les mieux Notés</Link>
-                        {pathname === '/best-note' ? <span className="button-link-menu"></span> : null}
                     </li>
             </ul>
             <div  id="menuToggle" onClick={() => handeleIsOpen()}>
@@ -69,21 +82,13 @@ import {withRouter,Link} from 'react-router-dom';
                     <div className="advanced-search-element" onClick={(e) => {e.stopPropagation()}}>
                         <span>Recherche avancé :</span>
                         <div className="item-advanced">
-                            <input type="checkbox" id="vege"/>
-                            <label htmlFor="vege">Végetarien</label>
-                        </div>
-                        <div className="item-advanced">
-                            <input type="checkbox" id="vege"/>
-                            <label htmlFor="vege">Végetarien</label>
-                        </div>
-                        <div className="item-advanced">
-                            <input type="checkbox" id="vege"/>
-                            <label htmlFor="vege">Végetarien</label>
+                            <input type="checkbox" id="vege" onChange={(e) => handeleChangeVegetal(e)} value="vegetarian"/>
+                            <label htmlFor="vege">végétarien</label>
                         </div>
                 </div>
                 ) : null}
                 <div className="group-search">
-                    <input ref={champTextRef} type="" placeholder="Recherche une recette" className="form-control form-search" onChange={(e) => handeleChampText(e)}/>
+                    <input ref={champTextRef} type="" placeholder="Rechercher une recette" className="form-control form-search" onChange={(e) => handeleChampText(e)}/>
                     <Button className="btn-search">
                     <span className="fa fa-search" ></span>
                     </Button>
