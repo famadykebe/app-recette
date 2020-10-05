@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from 'react';
 import { Col,Button,Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import Suggestion from '../components/suggestion';
+import Suggestion from '../components/Suggestion';
 import {connect} from 'react-redux';
 import {getRecetteElement,getFavoriList,deleteRemoveItem} from '../store/actions'
 

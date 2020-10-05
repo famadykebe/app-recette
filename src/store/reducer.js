@@ -1,4 +1,3 @@
-import Cookie from 'js-cookie';
 import {
     REQUEST_RECETTE,
     REQUEST_RECETTE_SUCCESS,
@@ -98,7 +97,6 @@ export const listFavoriItem = (state = inisialStateListeItemFavori,action ) => {
     switch(action.type){
 
         case REQUEST_LIST_FAVORI_ADD : {
-           console.log('new action payload -->',action.payload)
             return {
                 ...state,
                 favoriList:[...state.favoriList,action.payload],

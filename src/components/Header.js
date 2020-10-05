@@ -53,9 +53,9 @@ import {withRouter,Link} from 'react-router-dom';
 
     return (
         <header id="header">
-            <a href="" id="logo">
+            <Link to="/" id="logo">
                 <h1 className="title">O'delice</h1>
-            </a>
+            </Link>
 
            <nav className="navigation" role="navigation">
             <ul className={ `list-menu ${isOpen ? ('list-meunIsopen') :''}`}>
@@ -64,8 +64,8 @@ import {withRouter,Link} from 'react-router-dom';
                         {pathname === '/' ? <span className="button-link-menu"></span> : null}
                     </li>
                     <li>
-                        <Link to="/favorie">Mes Favories</Link>
-                        {pathname === '/favorie' ? <span className="button-link-menu"></span> : null}
+                        <Link to="/favorite">Mes Favories</Link>
+                        {pathname === '/favorite' ? <span className="button-link-menu"></span> : null}
                     </li>
             </ul>
             <div  id="menuToggle" onClick={() => handeleIsOpen()}>
