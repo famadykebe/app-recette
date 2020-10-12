@@ -1,5 +1,5 @@
-import React,{useEffect} from 'react'
-import { Link } from 'react-router-dom'
+import React,{useEffect} from 'react';
+import { Link } from 'react-router-dom';
 import { Col } from 'reactstrap';
 import {connect} from 'react-redux';
 import {getRecetteSimilar} from '../store/actions';
